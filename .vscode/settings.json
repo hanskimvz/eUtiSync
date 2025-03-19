@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "message.h": "c",
+        "stdio.h": "c",
+        "stdlib.h": "c",
+        "time.h": "c",
+        "proc_mysql.h": "c",
+        "load_config.h": "c"
+    }
+}

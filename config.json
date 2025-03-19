@@ -1,0 +1,71 @@
+{
+  "MYSQL": {
+      "host": "localhost",
+      "user": "gas_user",
+      "password": "13579",
+      "db": "gas_common",
+      "port": 3306,
+      "tables": {
+        "common_device": "gas_common.device",
+        "common_user": "gas_common.users",
+        "user": "users",
+        "device": "device",
+        "data": "gas_data"
+      }
+  },
+  "MONGODB": {
+      "host": "localhost",
+      "user": "gas_user",
+      "password": "13579",
+      "db": "gas_common",
+      "port": 5090,
+      "tables": {
+        "common_data": "misc_data",
+        "common_device": "device_route",
+        "common_user": "user_route",
+        "floating_user": "floating_users",
+        "user": "users",
+        "device": "device",
+        "data": "data",
+        "subscriber": "subscriber",
+        "web_config": "web_config"
+      }
+  },
+
+  "DB_FIELDS": {
+    "user":   ["ID", "code", "email", "flag", "lang", "name", "passwd", "regdate", "role"],
+    "device": ["device_uid", "meter_id", "firmware_version", "release_date", "install_date", "initial_access", "last_access", "last_timestamp", "initial_count", "last_count", "ref_interval", "db_name", "error_count", "param", "server_ip", "server_port", "sever_change_flag", "user_id", "installer_id", "group1", "group2", "group3", "comment", "status", "flag"],
+    "data":   ["timestamp", "count", "value", "status", "error"]
+  },
+  "SERVER": {
+      "host": "0.0.0.0",
+      "port": 5004,
+      "recv_packet":[
+        { "key": "EID",     "length": 1,    "format": "binary",   "description":"event ID"        },
+        { "key": "UID",     "length": 8,    "format": "ascii",    "description":"unique device id"},
+        { "key": "CNT",     "length": 192,  "format": "binary",   "description":"count table"     },
+        { "key": "BAT",     "length": 1,    "format": "binary",   "description":"battery remained"},
+        { "key": "UPT",     "length": 4,    "format": "binary",   "description":"uptime"          },
+        { "key": "ETC",     "length": 50,   "format": "binary",   "description":"etc"             }
+      ],
+      "send_packet": [
+        { "key": "RET",     "length": 1,    "format": "binary",   "description":"return code"     },
+        { "key": "UID",     "length": 8,    "format": "ascii",    "description":"unique device id"},
+        { "key": "TSC",     "length": 4,    "format": "binary",   "description":"current timestamp"},
+        { "key": "TSN",     "length": 4,    "format": "binary",   "description":"next timestamp"  },
+        { "key": "CNT",     "length": 4,    "format": "binary",   "description":"last timestamp"  },
+        { "key": "MIN",     "length": 2,    "format": "binary",   "description":"event min"       },
+        { "key": "MAX",     "length": 2,    "format": "binary",   "description":"event max"       },
+        { "key": "SVR",     "length": 4,    "format": "binary",   "description":"server IP"       },
+        { "key": "PRT",     "length": 2,    "format": "binary",   "description":"server port"     }
+      ]
+  },
+  "HTTP_SERVER": {
+      "host": "0.0.0.0",
+      "port": 5100
+  },
+  "TIMEZONE": {
+      "area": "Seoul",
+      "tz_offset": 32400
+  }
+}
